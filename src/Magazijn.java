@@ -1,16 +1,15 @@
-import javax.print.attribute.standard.PrinterMakeAndModel;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class magazijn {
-    ArrayList<pakket> pakketjes = new ArrayList<pakket>();
+public class Magazijn {
+    ArrayList<Pakket> pakketjes = new ArrayList<Pakket>();
     int MaxX;
     int MaxY;
 
-    public magazijn(int aantalPakketjes, int maxX, int maxY) {
+    public Magazijn(int aantalPakketjes, int maxX, int maxY) {
 
         for(int i=0;i<aantalPakketjes;i++) {
-            pakket pakket=new pakket();
+            Pakket pakket=new Pakket();
             pakket.setNumber(i);
             int X = ThreadLocalRandom.current().nextInt(0, maxX + 1);
             int Y = ThreadLocalRandom.current().nextInt(0, maxY + 1);
@@ -22,6 +21,9 @@ public class magazijn {
         MaxY = maxY;
     }
 
+    public ArrayList<Pakket> getPakketjes() {
+        return pakketjes;
+    }
 
     @Override
     public String toString() {
