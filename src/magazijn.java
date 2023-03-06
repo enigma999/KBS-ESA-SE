@@ -25,16 +25,8 @@ public class magazijn {
 
     @Override
     public String toString() {
-        String pakketjesString="";
-        pakketjes.forEach((pakket)->{
-            pakketjesString=pakketjesString.concat(
-                    String.valueOf(pakket.getNumber())
-//                    String.valueOf(pakket.getX()),
-//                    String.valueOf(pakket.getY())
-            );
-        });
         return "magazijn{" +
-                "pakketjes=" + pakketjesString+
+                "pakketjes=" + pakketjes +
                 ", MaxX=" + MaxX +
                 ", MaxY=" + MaxY +
                 '}';
