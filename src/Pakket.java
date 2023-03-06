@@ -1,4 +1,4 @@
-public class pakket {
+public class Pakket {
     int number;
     int x;
     int y;
