@@ -39,6 +39,9 @@ public class Main {
 
     public static double CalculatePathLength(ArrayList<Pakket> pakketjes) {
         double lengthOfPath = 0;
+        int firstPakketX = pakketjes.get(1).getX();
+        int firstPakketY = pakketjes.get(1).getX();
+        lengthOfPath = sqrt(firstPakketX * firstPakketY);
         for (int i = 0; i < pakketjes.size() - 1; i++) {
             int startX = pakketjes.get(i).x;
             int startY = pakketjes.get(i).y;
@@ -47,7 +50,7 @@ public class Main {
             int deltaX = startX + endX;
             int deltaY = startY + endY;
             double deltaDirectline = sqrt(deltaY * deltaY + deltaX * deltaX);
-            lengthOfPath = lengthOfPath+deltaDirectline;
+            lengthOfPath = lengthOfPath + deltaDirectline;
 
         }
         return lengthOfPath;
