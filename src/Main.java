@@ -4,7 +4,7 @@ import static java.lang.Math.sqrt;
 
 public class Main {
     public static void main(String[] args) {
-        Magazijn testMagazijn = new Magazijn(5, 20, 20);
+        Magazijn testMagazijn = new Magazijn(100, 200, 200);
 
 
         final long startTimeBruteForce = System.currentTimeMillis();
@@ -16,7 +16,7 @@ public class Main {
         final long endTimeBranchAndBound = System.currentTimeMillis();
 
         final long startTimeNearestNeighbor = System.currentTimeMillis();
-        ArrayList<Pakket> pathNearestNeighbor = NearestNeighbour.CalculatePathLength(testMagazijn.getPakketjes());
+        ArrayList<Pakket> pathNearestNeighbor = NearestNeighbour.CalculatePath(testMagazijn.getPakketjes());
         final long endTimeNearestNeighbor = System.currentTimeMillis();
 
         double pathLenghtBruteforce = CalculatePathLength(pathBruteforce);
@@ -31,6 +31,7 @@ public class Main {
         System.out.println("NearestNeighbor");
         System.out.println("Total execution time: " + (endTimeNearestNeighbor - startTimeNearestNeighbor));
         System.out.println("total length of the path " + pathLenghtNearestNeighbor);
+        System.out.println(pathNearestNeighbor.size());
 
 
         System.out.println(testMagazijn.toString());

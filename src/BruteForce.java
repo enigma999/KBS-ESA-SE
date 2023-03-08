@@ -4,6 +4,7 @@ public class BruteForce {
     public static ArrayList<Pakket> CalculatePathLength(ArrayList<Pakket> pakketjes) {
 
 
+
         return pakketjes;
     }
 }
