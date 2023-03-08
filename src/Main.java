@@ -4,7 +4,7 @@ import static java.lang.Math.sqrt;
 
 public class Main {
     public static void main(String[] args) {
-        Magazijn testMagazijn = new Magazijn(100, 200, 200);
+        Magazijn testMagazijn = new Magazijn(10000, 700, 700);
 
 
         final long startTimeBruteForce = System.currentTimeMillis();
@@ -34,7 +34,7 @@ public class Main {
         System.out.println(pathNearestNeighbor.size());
 
 
-        System.out.println(testMagazijn.toString());
+//        System.out.println(testMagazijn.toString());
 
     }
 
@@ -48,8 +48,8 @@ public class Main {
             int startY = pakketjes.get(i).y;
             int endX = pakketjes.get(i + 1).x;
             int endY = pakketjes.get(i + 1).y;
-            int deltaX = startX + endX;
-            int deltaY = startY + endY;
+            int deltaX = startX - endX;
+            int deltaY = startY - endY;
             double deltaDirectline = sqrt(deltaY * deltaY + deltaX * deltaX);
             lengthOfPath = lengthOfPath + deltaDirectline;
 
