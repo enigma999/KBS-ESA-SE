@@ -8,11 +8,11 @@ public class Main {
 
 
         final long startTimeBruteForce = System.currentTimeMillis();
-        ArrayList<Pakket> pathBruteforce = BruteForce.CalculatePathLength(testMagazijn.getPakketjes());
+        ArrayList<Pakket> pathBruteforce = BruteForce.CalculatePath(testMagazijn.getPakketjes());
         final long endTimeBruteForce = System.currentTimeMillis();
 
         final long startTimeBranchAndBound = System.currentTimeMillis();
-        ArrayList<Pakket> pathBranchAndBound = BranchAndBound.CalculatePathLength(testMagazijn.getPakketjes());
+        ArrayList<Pakket> pathBranchAndBound = BranchAndBound.CalculatePath(testMagazijn.getPakketjes());
         final long endTimeBranchAndBound = System.currentTimeMillis();
 
         final long startTimeNearestNeighbor = System.currentTimeMillis();
