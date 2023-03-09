@@ -4,15 +4,19 @@ import static java.lang.Math.sqrt;
 
 public class Main {
     public static void main(String[] args) {
-        Magazijn testMagazijn = new Magazijn(1000, 200, 200);
+
+
+        Magazijn testMagazijn = new Magazijn(7
+                , 10, 10);
+
 
 
         final long startTimeBruteForce = System.currentTimeMillis();
-        ArrayList<Pakket> pathBruteforce = BruteForce.CalculatePathLength(testMagazijn.getPakketjes());
+        ArrayList<Pakket> pathBruteforce = BruteForce.CalculatePath(testMagazijn.getPakketjes());
         final long endTimeBruteForce = System.currentTimeMillis();
 
         final long startTimeBranchAndBound = System.currentTimeMillis();
-        ArrayList<Pakket> pathBranchAndBound = BranchAndBound.CalculatePathLength(testMagazijn.getPakketjes());
+        ArrayList<Pakket> pathBranchAndBound = BranchAndBound.CalculatePath(testMagazijn.getPakketjes());
         final long endTimeBranchAndBound = System.currentTimeMillis();
 
         final long startTimeNearestNeighbor = System.currentTimeMillis();
@@ -35,8 +39,12 @@ public class Main {
         System.out.println(pathNearestNeighbor.size());
 
 
+
         System.out.println(testMagazijn.toString());
         System.out.println(pathLenghtBranchAndBound-pathLenghtNearestNeighbor);
+
+
+
 
     }
 
@@ -46,16 +54,17 @@ public class Main {
         int firstPakketY = pakketjes.get(1).getX();
         lengthOfPath = sqrt(firstPakketX * firstPakketY);
         for (int i = 0; i < pakketjes.size() - 1; i++) {
-            int startX = pakketjes.get(i).x;
-            int startY = pakketjes.get(i).y;
-            int endX = pakketjes.get(i + 1).x;
-            int endY = pakketjes.get(i + 1).y;
-            int deltaX = startX + endX;
-            int deltaY = startY + endY;
-            double deltaDirectline = sqrt(deltaY * deltaY + deltaX * deltaX);
-            lengthOfPath = lengthOfPath + deltaDirectline;
+            double DistanceBetween = FindDistance(pakketjes.get(i), pakketjes.get(i + 1));
+            lengthOfPath = lengthOfPath + DistanceBetween;
 
         }
         return lengthOfPath;
+    }
+
+    public static double FindDistance(Pakket pakket1, Pakket pakket2) {
+        int deltaX = pakket1.getX() - pakket2.getX();
+        int deltaY = pakket1.getY() - pakket2.getY();
+        double distanceBetween = sqrt(deltaY * deltaY + deltaX * deltaX);
+        return distanceBetween;
     }
 }
