@@ -7,12 +7,14 @@ public class Main {
         int totalWinsBaB = 0;
         int totalWinsNN = 0;
         int totalWinsBF = 0;
+        int totalTimeWinsBaB = 0;
+        int totalTimeWinsBF = 0;
+        int totalTimeWinsNN = 0;
 
 
+        for (int run = 0; run < 10000; run++) {
 
-        for (int run = 0; run < 100; run++) {
-
-            Magazijn testMagazijn = new Magazijn(8
+            Magazijn testMagazijn = new Magazijn(4
                     , 10, 10);
 //            System.out.println(CalculatePathLength(testMagazijn.getPakketjes()));
 
@@ -21,27 +23,28 @@ public class Main {
             ArrayList<Pakket> pathBruteforce = BruteForce.CalculatePath(testMagazijn.getPakketjes());
             final long endTimeBruteForce = System.currentTimeMillis();
             double pathLengthBruteforce = CalculatePathLength(pathBruteforce);
-//            System.out.println("Bruteforce");
-//            System.out.println("Total execution time: " + (endTimeBruteForce - startTimeBruteForce));
-//            System.out.println("total length of the path " + pathLengthBruteforce);
+            System.out.println("Bruteforce");
+            System.out.println("Total execution time: " + (endTimeBruteForce - startTimeBruteForce));
+            System.out.println("total length of the path " + pathLengthBruteforce);
 
             final long startTimeBranchAndBound = System.currentTimeMillis();
             ArrayList<Pakket> pathBranchAndBound = BranchAndBound.CalculatePath(testMagazijn.getPakketjes());
             final long endTimeBranchAndBound = System.currentTimeMillis();
             double pathLengthBranchAndBound = CalculatePathLength(pathBranchAndBound);
-//            System.out.println("BranchAndBound");
-//            System.out.println("Total execution time: " + (endTimeBranchAndBound - startTimeBranchAndBound));
-//            System.out.println("total length of the path " + pathLengthBranchAndBound);
+            System.out.println("BranchAndBound");
+            System.out.println("Total execution time: " + (endTimeBranchAndBound - startTimeBranchAndBound));
+            System.out.println("total length of the path " + pathLengthBranchAndBound);
 
 
             final long startTimeNearestNeighbor = System.currentTimeMillis();
             ArrayList<Pakket> pathNearestNeighbor = NearestNeighbour.CalculatePath(testMagazijn.getPakketjes());
             final long endTimeNearestNeighbor = System.currentTimeMillis();
             double pathLengthNearestNeighbor = CalculatePathLength(pathNearestNeighbor);
-//            System.out.println("NearestNeighbor");
-//            System.out.println("Total execution time: " + (endTimeNearestNeighbor - startTimeNearestNeighbor));
-//            System.out.println("total length of the path " + pathLengthNearestNeighbor);
+            System.out.println("NearestNeighbor");
+            System.out.println("Total execution time: " + (endTimeNearestNeighbor - startTimeNearestNeighbor));
+            System.out.println("total length of the path " + pathLengthNearestNeighbor);
             String shortestAlg = "";
+            String shortestTimeAlg = "";
 
             if (pathLengthBruteforce <= pathLengthBranchAndBound && pathLengthBruteforce <= pathLengthNearestNeighbor) {
                 shortestAlg = "BF";
@@ -53,23 +56,14 @@ public class Main {
                 shortestAlg = "NN";
                 totalWinsNN++;
             }
+
             System.out.println("Length BF: " + pathLengthBruteforce + "BnB: " + pathLengthBranchAndBound + "NN: " + pathLengthNearestNeighbor + "shortest: " + shortestAlg);
-            System.out.println("size BF: " + pathBruteforce.size() + "BnB: " + pathBranchAndBound.size() + "NN: " + pathNearestNeighbor.size() + "shortest: " + shortestAlg);
-            System.out.println(pathBruteforce.get(0).getX());
-            System.out.println(pathBruteforce.get(0).getY());
-            System.out.println(pathBruteforce.get(2).getX());
-            System.out.println(pathBruteforce.get(2).getY());
+
 
 
 //            System.out.println(pathNearestNeighbor.size());
         }
-        System.out.println("BAB" + totalWinsBaB + "NN" + totalWinsNN);
-
-
-
-
-
-
+        System.out.println("BF" + totalWinsBF + "BnB" + totalWinsBaB + "NN" + totalWinsNN);
 
 
 
