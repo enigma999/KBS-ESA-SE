@@ -6,7 +6,8 @@ public class BruteForce {
     private static double minDistance = Double.MAX_VALUE;
     private static int[] minPath;
 
-    public static ArrayList<Pakket> CalculatePath(ArrayList<Pakket> pakketjes) {
+    public static ArrayList<Pakket> CalculatePath(ArrayList<Pakket> pakketjesOriginal) {
+        ArrayList<Pakket> pakketjes = (ArrayList<Pakket>) pakketjesOriginal.clone();
         int n = pakketjes.size();
         int[] path = new int[n];
         boolean[] used = new boolean[n];
