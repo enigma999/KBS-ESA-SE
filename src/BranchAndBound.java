@@ -41,7 +41,7 @@ public class BranchAndBound {
         }
         RouteWrapper bestRoute = FindShortestCompleteRoute(routes);
         pakketjes= RearrangePakketjes(pakketjes, bestRoute);
-        System.out.println(bestRoute.getLength());
+
         return pakketjes;
     }
 

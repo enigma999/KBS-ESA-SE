@@ -14,7 +14,7 @@ public class Main {
 
         for (int run = 0; run < 10000; run++) {
 
-            Magazijn testMagazijn = new Magazijn(4
+            Magazijn testMagazijn = new Magazijn(7
                     , 10, 10);
 //            System.out.println(CalculatePathLength(testMagazijn.getPakketjes()));
 
@@ -23,26 +23,26 @@ public class Main {
             ArrayList<Pakket> pathBruteforce = BruteForce.CalculatePath(testMagazijn.getPakketjes());
             final long endTimeBruteForce = System.currentTimeMillis();
             double pathLengthBruteforce = CalculatePathLength(pathBruteforce);
-            System.out.println("Bruteforce");
-            System.out.println("Total execution time: " + (endTimeBruteForce - startTimeBruteForce));
-            System.out.println("total length of the path " + pathLengthBruteforce);
+//            System.out.println("Bruteforce");
+//            System.out.println("Total execution time: " + (endTimeBruteForce - startTimeBruteForce));
+//            System.out.println("total length of the path " + pathLengthBruteforce);
 
             final long startTimeBranchAndBound = System.currentTimeMillis();
             ArrayList<Pakket> pathBranchAndBound = BranchAndBound.CalculatePath(testMagazijn.getPakketjes());
             final long endTimeBranchAndBound = System.currentTimeMillis();
             double pathLengthBranchAndBound = CalculatePathLength(pathBranchAndBound);
-            System.out.println("BranchAndBound");
-            System.out.println("Total execution time: " + (endTimeBranchAndBound - startTimeBranchAndBound));
-            System.out.println("total length of the path " + pathLengthBranchAndBound);
+//            System.out.println("BranchAndBound");
+//            System.out.println("Total execution time: " + (endTimeBranchAndBound - startTimeBranchAndBound));
+//            System.out.println("total length of the path " + pathLengthBranchAndBound);
 
 
             final long startTimeNearestNeighbor = System.currentTimeMillis();
             ArrayList<Pakket> pathNearestNeighbor = NearestNeighbour.CalculatePath(testMagazijn.getPakketjes());
             final long endTimeNearestNeighbor = System.currentTimeMillis();
             double pathLengthNearestNeighbor = CalculatePathLength(pathNearestNeighbor);
-            System.out.println("NearestNeighbor");
-            System.out.println("Total execution time: " + (endTimeNearestNeighbor - startTimeNearestNeighbor));
-            System.out.println("total length of the path " + pathLengthNearestNeighbor);
+//            System.out.println("NearestNeighbor");
+//            System.out.println("Total execution time: " + (endTimeNearestNeighbor - startTimeNearestNeighbor));
+//            System.out.println("total length of the path " + pathLengthNearestNeighbor);
             String shortestAlg = "";
             String shortestTimeAlg = "";
 
