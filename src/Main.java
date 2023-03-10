@@ -9,6 +9,7 @@ public class Main {
         int totalWinsBF = 0;
 
 
+
         for (int run = 0; run < 100; run++) {
 
             Magazijn testMagazijn = new Magazijn(8
@@ -31,6 +32,7 @@ public class Main {
 //            System.out.println("BranchAndBound");
 //            System.out.println("Total execution time: " + (endTimeBranchAndBound - startTimeBranchAndBound));
 //            System.out.println("total length of the path " + pathLengthBranchAndBound);
+
 
             final long startTimeNearestNeighbor = System.currentTimeMillis();
             ArrayList<Pakket> pathNearestNeighbor = NearestNeighbour.CalculatePath(testMagazijn.getPakketjes());
@@ -64,15 +66,22 @@ public class Main {
         System.out.println("BAB" + totalWinsBaB + "NN" + totalWinsNN);
 
 
-//        System.out.println(testMagazijn.toString());
+
+
+
+
+
+
 
     }
 
     public static double CalculatePathLength(ArrayList<Pakket> pakketjes) {
         double lengthOfPath = 0;
+
         int firstPakketX = pakketjes.get(0).getX();
         int firstPakketY = pakketjes.get(0).getY();
         lengthOfPath = sqrt(firstPakketX * firstPakketX + firstPakketY * firstPakketY);
+
         for (int i = 0; i < pakketjes.size() - 1; i++) {
             double DistanceBetween = FindDistance(pakketjes.get(i), pakketjes.get(i + 1));
             lengthOfPath = lengthOfPath + DistanceBetween;
