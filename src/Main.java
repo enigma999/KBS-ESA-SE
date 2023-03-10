@@ -12,10 +12,10 @@ public class Main {
         int totalTimeWinsNN = 0;
 
 
-        for (int run = 0; run < 10000; run++) {
+        for (int run = 0; run < 10; run++) {
 
-            Magazijn testMagazijn = new Magazijn(7
-                    , 10, 10);
+            Magazijn testMagazijn = new Magazijn(9
+                    , 1000, 1000);
 //            System.out.println(CalculatePathLength(testMagazijn.getPakketjes()));
 
 
@@ -47,18 +47,20 @@ public class Main {
             String shortestTimeAlg = "";
 
             if (pathLengthBruteforce <= pathLengthBranchAndBound && pathLengthBruteforce <= pathLengthNearestNeighbor) {
-                shortestAlg = "BF";
+                shortestAlg += "BF ";
                 totalWinsBF++;
-            } else if (pathLengthBranchAndBound <= pathLengthNearestNeighbor) {
-                shortestAlg = "BAB";
+            }
+            if (pathLengthBranchAndBound <= pathLengthBruteforce && pathLengthBranchAndBound <= pathLengthNearestNeighbor) {
+                shortestAlg += "BAB ";
                 totalWinsBaB++;
-            } else {
-                shortestAlg = "NN";
+            }
+            if (pathLengthNearestNeighbor <= pathLengthBruteforce && pathLengthNearestNeighbor <= pathLengthBranchAndBound) {
+                shortestAlg += "NN ";
                 totalWinsNN++;
             }
 
             System.out.println("Length BF: " + pathLengthBruteforce + "BnB: " + pathLengthBranchAndBound + "NN: " + pathLengthNearestNeighbor + "shortest: " + shortestAlg);
-
+            System.out.println(pathBruteforce.size());
 
 
 //            System.out.println(pathNearestNeighbor.size());
