@@ -12,9 +12,9 @@ public class Main {
         int totalTimeWinsNN = 0;
 
 
-        for (int run = 0; run < 10; run++) {
+        for (int run = 0; run < 10000; run++) {
 
-            Magazijn testMagazijn = new Magazijn(9
+            Magazijn testMagazijn = new Magazijn(5
                     , 1000, 1000);
 //            System.out.println(CalculatePathLength(testMagazijn.getPakketjes()));
 
